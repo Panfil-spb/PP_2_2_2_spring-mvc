@@ -18,12 +18,15 @@ public class CarServiceImp {
         cars.add(new Car(7, 7, "uio"));
     }
 
+
     public ArrayList<Car> getCars() {
         return cars;
     }
 
     public ArrayList<Car> getCars(int count) {
-        if (count > 0 && count < 5) return (ArrayList<Car>) cars.subList(0, count);
+        if (count > 0 && count < 5) {
+            return (ArrayList<Car>) cars.subList(0, count);
+        }
         else return cars;
     }
 
