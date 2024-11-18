@@ -6,20 +6,22 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.Car;
+import web.service.CarService;
 import web.service.CarServiceImp;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class CarsController {
 
 
-    private CarServiceImp carServiceImp;
+    private CarService carService;
 
     @Autowired
-    public CarsController(CarServiceImp carServiceImp) {
-        this.carServiceImp = carServiceImp;
+    public CarsController(CarService carService) {
+        this.carService = carService;
     }
 
 
@@ -33,7 +35,7 @@ public class CarsController {
             countInt = 5;
         }
 
-        ArrayList<Car> cars = carServiceImp.getCars(countInt);
+        List<Car> cars = carService.getCars(countInt);
         model.addAttribute("cars", cars);
         return "cars";
     }
