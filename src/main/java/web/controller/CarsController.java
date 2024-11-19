@@ -9,9 +9,9 @@ import web.model.Car;
 import web.service.CarService;
 import web.service.CarServiceImp;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 public class CarsController {
@@ -21,7 +21,7 @@ public class CarsController {
 
     @Autowired
     public CarsController(CarService carService) {
-        this.carService = carService;
+        this.carService =  carService;
     }
 
 

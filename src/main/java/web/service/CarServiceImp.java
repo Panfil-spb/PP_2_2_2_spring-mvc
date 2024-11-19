@@ -4,10 +4,11 @@ import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
-public class CarServiceImp {
-    private ArrayList<Car> cars = new ArrayList<>();
+public class CarServiceImp implements CarService{
+    private List<Car> cars = new ArrayList<>();
     {
         cars.add(new Car(1, 1, "qwe"));
         cars.add(new Car(2, 2, "wer"));
@@ -19,13 +20,13 @@ public class CarServiceImp {
     }
 
 
-    public ArrayList<Car> getCars() {
+    public List<Car> getCars() {
         return cars;
     }
 
-    public ArrayList<Car> getCars(int count) {
+    public List<Car> getCars(int count) {
         if (count > 0 && count < 5) {
-            return (ArrayList<Car>) cars.subList(0, count);
+            return cars.subList(0, count);
         }
         else return cars;
     }
