@@ -24,9 +24,19 @@ public class CarServiceImp implements CarService{
         return cars;
     }
 
-    public List<Car> getCars(int count) {
-        if (count > 0 && count < 5) {
-            return cars.subList(0, count);
+
+
+    public List<Car> getCars(String count) {
+
+        int countInt;
+        try {
+            countInt = Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            countInt = 5;
+        }
+
+        if (countInt > 0 && countInt < 5) {
+            return cars.subList(0, countInt);
         }
         else return cars;
     }

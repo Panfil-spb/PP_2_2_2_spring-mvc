@@ -28,14 +28,9 @@ public class CarsController {
     @GetMapping(value = "/cars")
     public String getCars(@RequestParam(value = "count", defaultValue = "5", required = false) String count, ModelMap model) {
 
-        int countInt;
-        try {
-            countInt = Integer.parseInt(count);
-        } catch (NumberFormatException e) {
-            countInt = 5;
-        }
 
-        List<Car> cars = carService.getCars(countInt);
+
+        List<Car> cars = carService.getCars(count);
         model.addAttribute("cars", cars);
         return "cars";
     }
